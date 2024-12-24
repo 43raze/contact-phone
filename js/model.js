@@ -7,22 +7,21 @@ const contactPhoneModel = {
   currentId: 101,
 
   addContact(contact) {
-    this.currentId++
     if (!contact.firstName || !contact.secondName || !contact.phone) return
-    // explain mutation contact
-    const createdContact = Object.assign({ id: this.currentId }, contact)
+    delete contact.id
+    const createdContact = Object.assign({ id: this.currentId++ }, contact)
     this.contacts.push(createdContact)
   },
 
   updateContactById(id, contact) {
-    const existingContact = this.contacts.find(contact => contact.id === id)
+    const findedContact = this.contacts.find(contact => contact.id === id)
+    if (!findedContact) return
+    delete contact.id
+    Object.assign(findedContact, contact)
 
-    if (!existingContact) return
-
-    existingContact.firstName = contact.firstName || existingContact.firstName
-    existingContact.secondName =
-      contact.secondName || existingContact.secondName
-    existingContact.phone = contact.phone || existingContact.phone
+    // findedContact.firstName = contact.firstName || findedContact.firstName
+    // findedContact.secondName = contact.secondName || findedContact.secondName
+    // findedContact.phone = contact.phone || findedContact.phone
   },
 
   markFavoriteById(id) {
