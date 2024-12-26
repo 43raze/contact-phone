@@ -1,6 +1,6 @@
 const contactPhoneModel = {
   contacts: [],
-  favorites: [],
+  // favorites: [],
   recentCalls: [],
   blockedPhones: [],
   currentId: 101,
@@ -9,6 +9,7 @@ const contactPhoneModel = {
     if (!contact.firstName || !contact.secondName || !contact.phone) return
     delete contact.id
     const createdContact = Object.assign({ id: this.currentId++ }, contact)
+    contact.isFavorite = false
     this.contacts.push(createdContact)
   },
 
@@ -17,8 +18,6 @@ const contactPhoneModel = {
     if (!findedContact) return
     delete contact.id
     Object.assign(findedContact, contact)
-
-    this.editContact = findedContact
   },
 
   markFavoriteById(id) {
@@ -31,6 +30,16 @@ const contactPhoneModel = {
     if (!isFavoriteContact) {
       this.favorites.push(contact)
     }
+  },
+
+  markFavoriteById(id) {
+    const contact = this.contacts.find(contact => contact.id === id)
+    if (!contact) return
+    contact.isFavorite = true
+  },
+
+  getFavorites() {
+    return this.contacts.filter(contact => contact.isFavorite)
   },
 
   searchContact(query) {
