@@ -3,7 +3,6 @@ const contactPhoneModel = {
   favorites: [],
   recentCalls: [],
   blockedPhones: [],
-  editContact: {},
   currentId: 101,
 
   addContact(contact) {
@@ -19,9 +18,7 @@ const contactPhoneModel = {
     delete contact.id
     Object.assign(findedContact, contact)
 
-    // findedContact.firstName = contact.firstName || findedContact.firstName
-    // findedContact.secondName = contact.secondName || findedContact.secondName
-    // findedContact.phone = contact.phone || findedContact.phone
+    this.editContact = findedContact
   },
 
   markFavoriteById(id) {
@@ -37,12 +34,15 @@ const contactPhoneModel = {
   },
 
   searchContact(query) {
-    return this.contacts.filter(
-      contact =>
-        contact.firstName.toLowerCase().includes(query.toLowerCase()) ||
-        contact.secondName.toLowerCase().includes(query.toLowerCase()) ||
+    const lowerQuery = query.toLowerCase()
+
+    return this.contacts.filter(contact => {
+      return (
+        contact.firstName.toLowerCase().includes(lowerQuery) ||
+        contact.secondName.toLowerCase().includes(lowerQuery) ||
         contact.phone.includes(query)
-    )
+      )
+    })
   },
 
   removeContactById(id) {
@@ -93,15 +93,16 @@ console.log(contactPhoneModel.contacts)
 contactPhoneModel.markFavoriteById(contactPhoneModel.contacts[0].id)
 console.log(contactPhoneModel.favorites)
 
-contactPhoneModel.updateContactById(104, {
+contactPhoneModel.updateContactById(103, {
   firstName: 'Мария',
   phone: '0442467222',
 })
 
-console.log(contactPhoneModel.contacts)
+console.log(contactPhoneModel.editContact)
 
-const searchResults = contactPhoneModel.searchContact('Ирина')
-console.log(searchResults)
+// const searchResultsByName = contactPhoneModel.searchContact('Ирина')
+// console.log(searchResultsByName)
+// console.log(contactPhoneModel.filteredContacts)
 
 contactPhoneModel.addToBlockedList(contactPhoneModel.contacts[0].id)
 console.log(contactPhoneModel.blockedPhones)
