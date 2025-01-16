@@ -35,9 +35,10 @@
                 placeholder="Поиск в контактах"
                 required
               />
-              <label class="label-icon" for="search"
-                ><i class="material-icons">search</i></label
-              >
+
+              <label class="label-icon" for="search">
+                <i class="material-icons">search</i>
+              </label>
               <i class="material-icons">close</i>
             </div>
           </form>
@@ -50,11 +51,13 @@
                 <span class="material-symbols-outlined">star</span>
               </a>
             </li>
+
             <li class="tab">
               <a href="#tab-2">
                 <span class="material-symbols-outlined">chronic</span>
               </a>
             </li>
+
             <li class="tab">
               <a class="active" href="#tab-3">
                 <span class="material-symbols-outlined">people</span>
@@ -73,15 +76,17 @@
                   <div class="center-align">
                     <span
                       class="transparent teal-text text-lighten-5 pic center-align material-symbols-outlined"
-                      >person</span
-                    >
+                      >person
+                    </span>
                   </div>
+
                   <span class="white-text">Петр Иванов</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
         <div id="tab-2" class="col s12">
           <div class="container">
             <div class="row valign-wrapper">
@@ -92,9 +97,11 @@
                   >
                     <i class="material-icons circle teal darken-3">person</i>
                     <span class="title"><b>0991234567</b></span>
+
                     <p>
                       <i>Позавчера</i>
                     </p>
+
                     <a href="#!" class="secondary-content">
                       <i class="material-icons">phone</i>
                     </a>
@@ -104,6 +111,7 @@
             </div>
           </div>
         </div>
+
         <div id="tab-3" class="col s12">
           <ul id="app-contacts" class="collection">
             <li
@@ -115,12 +123,15 @@
                   <div class="col s4">
                     <span
                       class="teal darken-1 teal-text text-lighten-4 pic circle center-align material-symbols-outlined"
-                      >person</span
                     >
+                      person
+                    </span>
                   </div>
+
                   <div class="col s4">
                     <span class=""><b>Петр Иванов</b></span>
                   </div>
+
                   <div class="col s4">
                     <span class="badge new">phone</span>
                   </div>
@@ -128,6 +139,7 @@
               </div>
             </li>
           </ul>
+
           <div class="fixed-action-btn">
             <a
               id="elFab"
@@ -147,6 +159,7 @@
       <div class="modal-content">
         <div class="wrap-content row">
           <h5 class="header">Добавить контакт</h5>
+
           <form class="col s12" autocomplete="off">
             <div class="row">
               <div class="input-field col s12">
@@ -159,6 +172,7 @@
                 <label for="firstName">Имя</label>
               </div>
             </div>
+
             <div class="row">
               <div class="input-field col s12">
                 <input
@@ -170,6 +184,7 @@
                 <label for="secondName">Фамилия</label>
               </div>
             </div>
+
             <div class="row">
               <div class="input-field col s12">
                 <input
@@ -181,6 +196,7 @@
                 <label for="phone">Телефон</label>
               </div>
             </div>
+
             <!-- <div class="row">
               <div class="input-field col s12">
                 <input
@@ -220,6 +236,7 @@
                   class="btn-ok waves-effect waves-light btn modal-close"
                 >
                   <i class="material-icons left">check</i>
+
                   <span>Добавить</span>
                 </a>
               </div>
@@ -237,19 +254,22 @@
               <div class="col s6 center-align teal-text text-lighten-3">
                 <i class="material-symbols-outlined person">person</i>
               </div>
+
               <div class="col s6 right-align teal-text text-lighten-5">
-                <span class="modal-close material-symbols-outlined non-fill"
-                  >star</span
-                >
+                <span class="modal-close material-symbols-outlined non-fill">
+                  star
+                </span>
                 <span class="modal-close material-symbols-outlined">star</span>
                 <span class="modal-close material-symbols-outlined">edit</span>
-                <span class="modal-close material-symbols-outlined"
-                  >delete</span
-                >
+                <span class="modal-close material-symbols-outlined">
+                  delete
+                </span>
               </div>
             </div>
+
             <h5 class="center-align white-text">Петр Иванов</h5>
           </div>
+
           <div class="bottom">
             <div class="container">
               <div class="row valign-wrapper">
@@ -259,10 +279,13 @@
                       class="waves-effect collection-item avatar transparent z-depth-1"
                     >
                       <i class="material-icons circle teal darken-3">person</i>
+
                       <span class="title"><b>0991234567</b></span>
+
                       <p>
                         <i>Позавчера</i>
                       </p>
+
                       <a href="#!" class="secondary-content">
                         <i class="material-icons">phone</i>
                       </a>
@@ -280,11 +303,15 @@
       <div class="modal-content">
         <div class="wrap-content">
           <h5 class="header">Найдено:</h5>
+
           <ul class="collection">
             <li class="collection-item avatar">
               <i class="material-icons circle green">assessment</i>
+
               <span class="title">Title</span>
+
               <p>First Line</p>
+
               <a href="#!" class="secondary-content">
                 <i class="material-icons">phone</i>
               </a>
@@ -295,6 +322,8 @@
     </div>
 
     <script src="./js/model.js"></script>
+    <script src="./js/view.js"></script>
+    <script src="./js/controller.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

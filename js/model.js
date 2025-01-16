@@ -1,7 +1,6 @@
 const contactPhoneModel = {
   contacts: [],
   recentCalls: [],
-  blockedPhones: [],
   currentId: 101,
 
   addContact(contact) {
@@ -32,11 +31,6 @@ const contactPhoneModel = {
     this.removeContactFromAllLists(id)
   },
 
-  removeContactFromAllLists(id) {
-    this.contacts = this.contacts.filter(contact => contact.id !== id)
-    this.recentCalls = this.recentCalls.filter(call => call.id !== id)
-  },
-
   addToBlockedList(id) {
     const contact = this.contacts.find(contact => contact.id === id)
     if (!contact) return
@@ -46,36 +40,30 @@ const contactPhoneModel = {
       this.blockedPhones.push(contact)
     }
   },
+
+  addRecentCall(recentCall) {
+    const findedContact = this.contacts.find(
+      contact => contact.phone === recentCall.phone
+    )
+    recentCall.contact = findedContact ?? null
+    this.recentCalls.unshift(recentCall)
+  },
+
+  findContact(query) {
+    if (!query || typeof query !== 'string') return []
+
+    const lowerCaseQuery = query.toLowerCase()
+
+    return this.contacts.filter(
+      contact =>
+        contact.firstName.toLowerCase().includes(lowerCaseQuery) ||
+        contact.secondName.toLowerCase().includes(lowerCaseQuery) ||
+        contact.phone.includes(lowerCaseQuery)
+    )
+  },
 }
-
-contactPhoneModel.addContact({
-  firstName: 'Иван',
-  secondName: 'Иванов',
-  phone: '0442467214',
-})
-
-contactPhoneModel.addContact({
-  firstName: 'Мария',
-  secondName: 'Сергеевна',
-  phone: '0442467215',
-})
-
-contactPhoneModel.addContact({
-  firstName: 'Ирина',
-  secondName: 'Васильевна',
-  phone: '0442467216',
-})
-
-console.log(contactPhoneModel.contacts)
-
-contactPhoneModel.updateContactById(103, {
-  firstName: 'Мария',
-  phone: '0442467222',
-})
-
-console.log(contactPhoneModel.contacts)
-
-contactPhoneModel.markFavoriteById(103)
-contactPhoneModel.getFavorites(103)
-
-console.log(contactPhoneModel.contacts)
+// contactPhoneModel.addContact({
+//   firstName: 'Мария',
+//   secondName: 'Сидорова',
+//   phone: '0442467220',
+// })
