@@ -62,8 +62,8 @@ const contactPhoneModel = {
     )
   },
 }
-// contactPhoneModel.addContact({
-//   firstName: 'Мария',
-//   secondName: 'Сидорова',
-//   phone: '0442467220',
-// })
+contactPhoneModel.addContact({
+  firstName: 'Мария',
+  secondName: 'Сидорова',
+  phone: '0442467220',
+})

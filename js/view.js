@@ -6,12 +6,18 @@ const elAAddContact = document.querySelector('#appAddContact')
 //* Listeners
 elAAddContact.addEventListener('click', onClickAddContact)
 
-function onClickAddContact(e) {
+function onClickAddContact() {
   const firstName = document.querySelector('#firstName').value.trim()
   const secondName = document.querySelector('#secondName').value.trim()
   const phone = document.querySelector('#phone').value.trim()
 
-  handleAddContact(e)
+  const contact = {
+    firstName,
+    secondName,
+    phone,
+  }
+
+  handleAddContact(contact)
 }
 
 //* Renders
