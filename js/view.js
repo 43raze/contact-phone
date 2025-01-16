@@ -35,6 +35,14 @@ function renderFavorites(favorites) {}
 function renderRecentCalls(recentCalls) {}
 function renderFindeContact(contacts) {}
 
+function renderModal2DetailContact(contact) {
+  const elModal2 = document.querySelector('#modal2')
+  const elH5FullName = elModal2.querySelector('h5')
+  const elBPhone = elModal2.querySelector('span.title> b')
+  elH5FullName.textContent = contact.firstName + ' ' + contact.secondName
+  elBPhone.textContent = contact.phone
+}
+
 //* Generators
 function generateContact({ firstName, secondName }) {
   return `
