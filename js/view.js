@@ -5,6 +5,10 @@ const elAAddContact = document.querySelector('#appAddContact')
 //* Listeners
 elAAddContact.addEventListener('click', onClickAddContact)
 
+function onClickLiContactDetail() {
+  // body
+}
+
 function onClickAddContact() {
   const firstName = document.querySelector('#firstName').value.trim()
   const secondName = document.querySelector('#secondName').value.trim()
@@ -38,11 +42,17 @@ function renderModal2DetailContact(contact) {
   const elModal2 = document.querySelector('#modal2')
   const elH5FullName = elModal2.querySelector('h5')
   const elBPhone = elModal2.querySelector('span.title > b')
-  const elSpanIcon = elModal2.querySelector('span.non-fill')
+  const elSpanFavorite = elModal2.querySelector('span')
+
+  elModal2.setAttribute('contact-id', contact.id)
 
   elH5FullName.textContent = contact.firstName + ' ' + contact.secondName
   elBPhone.textContent = contact.phone
-  elSpanIcon.classList.remove('non-fill')
+  if (contact.isFavorite) {
+    elSpanFavorite.classList.remove('non-fill')
+  } else {
+    elSpanFavorite.classList.add('non-fill')
+  }
 }
 
 function renderFavoriteContact(contacts) {
