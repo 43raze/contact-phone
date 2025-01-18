@@ -1,6 +1,9 @@
 function handleAddContact(contact) {
-  contactPhoneModel.addContact(contact)
-  renderContacts(contactPhoneModel.contacts)
+  contactModel.addContact(contact)
+  renderContacts(contactModel.contacts)
+
+  renderModal2DetailContact(contact)
 }
 
-renderContacts(contactPhoneModel.contacts)
+renderContacts(contactModel.contacts)
+renderFavoriteContact(contactModel.contacts)

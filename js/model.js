@@ -1,4 +1,4 @@
-const contactPhoneModel = {
+const contactModel = {
   contacts: [],
   recentCalls: [],
   currentId: 101,
@@ -28,7 +28,7 @@ const contactPhoneModel = {
   },
 
   removeContactById(id) {
-    this.removeContactFromAllLists(id)
+    this.contacts = this.contacts.filter(contact => contact.id !== id)
   },
 
   addToBlockedList(id) {
@@ -62,7 +62,8 @@ const contactPhoneModel = {
     )
   },
 }
-contactPhoneModel.addContact({
+
+contactModel.addContact({
   firstName: 'Мария',
   secondName: 'Сидорова',
   phone: '0442467220',

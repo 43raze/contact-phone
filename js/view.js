@@ -1,4 +1,3 @@
-const elDivFavorites = document.querySelector('#app-favorites')
 const elUlRecentCalls = document.querySelector('#app-recent-calls')
 const elInputSearch = document.querySelector('#search')
 const elAAddContact = document.querySelector('#appAddContact')
@@ -18,6 +17,10 @@ function onClickAddContact() {
   }
 
   handleAddContact(contact)
+
+  document.querySelector('#firstName').value = ''
+  document.querySelector('#secondName').value = ''
+  document.querySelector('#phone').value = ''
 }
 
 //* Renders
@@ -31,22 +34,32 @@ function renderContacts(contacts) {
   })
 }
 
-function renderFavorites(favorites) {}
-function renderRecentCalls(recentCalls) {}
-function renderFindeContact(contacts) {}
-
 function renderModal2DetailContact(contact) {
   const elModal2 = document.querySelector('#modal2')
   const elH5FullName = elModal2.querySelector('h5')
-  const elBPhone = elModal2.querySelector('span.title> b')
+  const elBPhone = elModal2.querySelector('span.title > b')
+  const elSpanIcon = elModal2.querySelector('span.non-fill')
+
   elH5FullName.textContent = contact.firstName + ' ' + contact.secondName
   elBPhone.textContent = contact.phone
+  elSpanIcon.classList.remove('non-fill')
+}
+
+function renderFavoriteContact(contacts) {
+  const elDivFavorites = document.querySelector('#app-favorites')
+  elDivFavorites.innerHTML = ''
+
+  contacts.forEach(contact => {
+    const elContactFavorite = generateFavoriteContact(contact)
+    elDivFavorites.innerHTML += elContactFavorite
+  })
 }
 
 //* Generators
-function generateContact({ firstName, secondName }) {
+function generateContact({ id, firstName, secondName }) {
   return `
 <li
+  id="${id}"
   href="#modal2"
   class="contact modal-trigger collection-item transparent waves-effect">
   <div class="container">
@@ -68,6 +81,24 @@ function generateContact({ firstName, secondName }) {
 </li>
 `
 }
-function generateFavorites(params) {}
-function generateRecentCalls(params) {}
-function generateFindeContactt(params) {}
+
+function generateFavoriteContact({ firstName, secondName, phone }) {
+  return `
+  <div class="col s6 m4 l3 xl2">
+  <div class="card-panel teal lighten-2 waves-effect waves-light">
+    <div class="center-align">
+      <span class="transparent teal-text text-lighten-5 pic center-align material-symbols-outlined">
+        person
+      </span>
+    </div>
+    <span class="white-text">
+      ${firstName} ${secondName}
+    </span>
+
+    <p class="white-text">
+      ${phone}
+    </p>
+  </div>
+</div>
+`
+}
