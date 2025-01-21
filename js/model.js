@@ -10,6 +10,10 @@ const contactModel = {
     this.contacts.push(createdContact)
   },
 
+  getContactById(id) {
+    return this.contacts.find(contact => contact.id === id)
+  },
+
   updateContactById(id, contact) {
     const foundContact = this.contacts.find(contact => contact.id === id)
     if (!foundContact) return
@@ -67,4 +71,16 @@ contactModel.addContact({
   firstName: 'Мария',
   secondName: 'Сидорова',
   phone: '0442467220',
+})
+
+contactModel.addContact({
+  firstName: 'Ivan',
+  secondName: 'Сидоров',
+  phone: '0442467222',
+})
+
+contactModel.addContact({
+  firstName: 'Petr',
+  secondName: 'Сидорова',
+  phone: '0442467223',
 })

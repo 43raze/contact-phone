@@ -1,8 +1,11 @@
 function handleAddContact(contact) {
   contactModel.addContact(contact)
   renderContacts(contactModel.contacts)
+}
 
-  // renderModal2DetailContact(contact)
+function handleDetailContact() {
+  contactModel.getContactById(contact.id)
+  renderModal2DetailContact(contactModel.contacts)
 }
 
 renderContacts(contactModel.contacts)
