@@ -1,23 +1,15 @@
 // const elUlRecentCalls = document.querySelector('#app-recent-calls')
 // const elInputSearch = document.querySelector('#search')
 const elAAddContact = document.querySelector('#appAddContact')
-const elUlDetailContacts = document.querySelector('.contact')
+// const elUlDetailContacts = document.querySelector('.contact')
 
 //* Listeners
 elAAddContact.addEventListener('click', onClickAddContact)
-elUlDetailContacts.addEventListener('click', onClickLiContactDetail)
+// elUlDetailContacts.addEventListener('click', onClickLiContactDetail)
 
-function onClickLiContactDetail() {
-  const elLi =
-    // renderModal2DetailContact({
-    //   firstName: 'aaa',
-    //   secondName: 'bbb',
-    //   phone: '044',
-    //   id: 101,
-    //   isFavorite: false,
-    // })
-
-    handleDetailContact()
+function onClickLiContactDetail(e) {
+  const contactId = e.currentTarget.getAttribute('contact-id')
+  handleDetailContact(contactId)
 }
 
 function onClickAddContact() {
@@ -81,6 +73,7 @@ function renderModal2DetailContact(contact) {
 function generateContact({ id, firstName, secondName }) {
   return `
 <li
+  onclick="onClickLiContactDetail(event)"
   contact-id="${id}"
   href="#modal2"
   class="contact modal-trigger collection-item transparent waves-effect">
