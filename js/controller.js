@@ -8,5 +8,10 @@ function handleDetailContact(contactId) {
   renderModal2DetailContact(contact)
 }
 
+function handleRemovelContact(contactId) {
+  contactModel.removeContactById(+contactId)
+  renderContacts(contactModel.contacts)
+}
+
 renderContacts(contactModel.contacts)
 // renderFavoriteContact(contactModel.contacts)

@@ -29,6 +29,11 @@ function onClickAddContact() {
   document.querySelector('#secondName').value = ''
   document.querySelector('#phone').value = ''
 }
+function onClickRemoveContact() {
+  const elModal2 = document.querySelector('#modal2')
+  const contactId = elModal2.getAttribute('contact-id')
+  handleRemovelContact(contactId)
+}
 
 //* Renders
 function renderContacts(contacts) {
