@@ -1,11 +1,7 @@
-// const elUlRecentCalls = document.querySelector('#app-recent-calls')
-// const elInputSearch = document.querySelector('#search')
 const elAAddContact = document.querySelector('#appAddContact')
-// const elUlDetailContacts = document.querySelector('.contact')
 
 //* Listeners
 elAAddContact.addEventListener('click', onClickAddContact)
-// elUlDetailContacts.addEventListener('click', onClickLiContactDetail)
 
 function onClickLiContactDetail(e) {
   const contactId = e.currentTarget.getAttribute('contact-id')
@@ -29,6 +25,7 @@ function onClickAddContact() {
   document.querySelector('#secondName').value = ''
   document.querySelector('#phone').value = ''
 }
+
 function onClickRemoveContact() {
   const elModal2 = document.querySelector('#modal2')
   const contactId = elModal2.getAttribute('contact-id')
@@ -63,15 +60,15 @@ function renderModal2DetailContact(contact) {
   }
 }
 
-// function renderFavoriteContact(contacts) {
-//   const elDivFavorites = document.querySelector('#app-favorites')
-//   elDivFavorites.innerHTML = ''
+function renderFavoriteContact(contacts) {
+  const elDivFavorites = document.querySelector('#app-favorites')
+  elDivFavorites.innerHTML = ''
 
-//   contacts.forEach(contact => {
-//     const elContactFavorite = generateFavoriteContact(contact)
-//     elDivFavorites.innerHTML += elContactFavorite
-//   })
-// }
+  contacts.forEach(contact => {
+    const elContactFavorite = generateFavoriteContact(contact)
+    elDivFavorites.innerHTML += elContactFavorite
+  })
+}
 
 // Generators
 
@@ -102,23 +99,23 @@ function generateContact({ id, firstName, secondName }) {
 `
 }
 
-// function generateFavoriteContact({ firstName, secondName, phone }) {
-//   return `
-//   <div class="col s6 m4 l3 xl2">
-//   <div class="card-panel teal lighten-2 waves-effect waves-light">
-//     <div class="center-align">
-//       <span class="transparent teal-text text-lighten-5 pic center-align material-symbols-outlined">
-//         person
-//       </span>
-//     </div>
-//     <span class="white-text">
-//       ${firstName} ${secondName}
-//     </span>
+function generateFavoriteContact({ firstName, secondName, phone }) {
+  return `
+  <div class="col s6 m4 l3 xl2">
+  <div class="card-panel teal lighten-2 waves-effect waves-light">
+    <div class="center-align">
+      <span class="transparent teal-text text-lighten-5 pic center-align material-symbols-outlined">
+        person
+      </span>
+    </div>
+    <span class="white-text">
+      ${firstName} ${secondName}
+    </span>
 
-//     <p class="white-text">
-//       ${phone}
-//     </p>
-//   </div>
-// </div>
-// `
-// }
+    <p class="white-text">
+      ${phone}
+    </p>
+  </div>
+</div>
+`
+}
