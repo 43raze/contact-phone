@@ -1,6 +1,6 @@
 const elAAddContact = document.querySelector('#appAddContact')
 
-//* Listeners
+// Listeners
 elAAddContact.addEventListener('click', onClickAddContact)
 
 function onClickLiContactDetail(e) {
@@ -32,7 +32,15 @@ function onClickRemoveContact() {
   handleRemovelContact(contactId)
 }
 
-//* Renders
+function onClickSpanAddToFavorite(e) {
+  const elModal2 = document.querySelector('#modal2')
+  const elSpanFavorite = e.currentTarget.querySelector('span')
+  const contactId = elModal2.getAttribute('contact-id')
+
+  handleFavorite()
+}
+
+// Renders
 function renderContacts(contacts) {
   const elContacts = document.querySelector('#app-contacts')
   elContacts.innerHTML = ''
@@ -51,8 +59,8 @@ function renderModal2DetailContact(contact) {
 
   elModal2.setAttribute('contact-id', contact.id)
 
-  elH5FullName.textContent = contact.firstName + ' ' + contact.secondName
-  elBPhone.textContent = contact.phone
+  elH5FullName.textContent = `${contact.firstName} ${contact.secondName}`
+  elBPhone.textContent = `${contact.phone}`
   if (contact.isFavorite) {
     elSpanFavorite.classList.remove('non-fill')
   } else {
@@ -60,13 +68,13 @@ function renderModal2DetailContact(contact) {
   }
 }
 
-function renderFavoriteContact(contacts) {
-  const elDivFavorites = document.querySelector('#app-favorites')
-  elDivFavorites.innerHTML = ''
+function renderFavorites(contacts) {
+  const elFavorites = document.querySelector('#app-favorites')
+  elFavorites.innerHTML = ''
 
   contacts.forEach(contact => {
-    const elContactFavorite = generateFavoriteContact(contact)
-    elDivFavorites.innerHTML += elContactFavorite
+    const elFavorite = generateFavorite(contact)
+    elFavorites.innerHTML += elFavorite
   })
 }
 
@@ -99,22 +107,19 @@ function generateContact({ id, firstName, secondName }) {
 `
 }
 
-function generateFavoriteContact({ firstName, secondName, phone }) {
+function generateFavorite({ firstName, secondName }) {
   return `
-  <div class="col s6 m4 l3 xl2">
+  <div class="favorite col s6 m4 l3 xl2">
   <div class="card-panel teal lighten-2 waves-effect waves-light">
     <div class="center-align">
       <span class="transparent teal-text text-lighten-5 pic center-align material-symbols-outlined">
         person
       </span>
     </div>
+
     <span class="white-text">
       ${firstName} ${secondName}
     </span>
-
-    <p class="white-text">
-      ${phone}
-    </p>
   </div>
 </div>
 `

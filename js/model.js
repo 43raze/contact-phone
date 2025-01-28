@@ -70,17 +70,22 @@ const contactModel = {
 contactModel.addContact({
   firstName: 'Мария',
   secondName: 'Сидорова',
-  phone: '0442467220',
+  phone: '0442467214',
 })
 
 contactModel.addContact({
-  firstName: 'Ivan',
-  secondName: 'Сидоров',
-  phone: '0442467222',
+  firstName: 'Иван',
+  secondName: 'Иванов',
+  phone: '0442467215',
 })
 
 contactModel.addContact({
-  firstName: 'Petr',
-  secondName: 'Сидорова',
-  phone: '0442467223',
+  firstName: 'Петр',
+  secondName: 'Петров',
+  phone: '0442467216',
 })
+
+console.log('Контакты после добавления:', contactModel.contacts)
+
+contactModel.markFavoriteById(101)
+console.log('Избранные контакты:', contactModel.getFavorites())

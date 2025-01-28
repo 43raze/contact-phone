@@ -13,5 +13,11 @@ function handleRemovelContact(contactId) {
   renderContacts(contactModel.contacts)
 }
 
+function handleFavorite(contactId) {
+  contactModel.markFavoriteById(+contactId)
+  contactModel.getFavorites()
+
+  renderFavorites()
+}
+
 renderContacts(contactModel.contacts)
-// renderFavoriteContact(contactModel.contacts)
