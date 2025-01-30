@@ -4,9 +4,11 @@ const contactModel = {
   currentId: 101,
 
   addContact(contact) {
-    if (!contact.firstName || !contact.secondName || !contact.phone) return
-    contact.isFavorite = false
+    const requiredProps = ['firstName', 'secondName', 'phone']
+    const isCorrect = requiredProps.every(prop => !!contact[prop])
+    if (!isCorrect) return
     const createdContact = Object.assign({ id: this.currentId++ }, contact)
+    createdContact.isFavorite = false
     this.contacts.push(createdContact)
   },
 
@@ -15,16 +17,17 @@ const contactModel = {
   },
 
   updateContactById(id, contact) {
-    const foundContact = this.contacts.find(contact => contact.id === id)
-    if (!foundContact) return
     delete contact.id
-    Object.assign(foundContact, contact)
+    const foundContact = this.getContactById(id)
+    if (foundContact) Object.assign(foundContact, contact)
   },
 
   markFavoriteById(id) {
-    const contact = this.contacts.find(contact => contact.id === id)
-    if (!contact) return
-    contact.isFavorite = true
+    this.updateContactById(id, { isFavorite: true })
+  },
+
+  unmarkFavoriteById(id) {
+    this.updateContactById(id, { isFavorite: false })
   },
 
   getFavorites() {
@@ -89,3 +92,5 @@ console.log('Контакты после добавления:', contactModel.co
 
 contactModel.markFavoriteById(101)
 console.log('Избранные контакты:', contactModel.getFavorites())
+
+console.log(contactModel.contacts)
