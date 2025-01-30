@@ -37,7 +37,9 @@ function onClickSpanAddToFavorite(e) {
   const elSpanFavorite = e.currentTarget.querySelector('span')
   const contactId = elModal2.getAttribute('contact-id')
 
-  handleFavorite()
+  console.log(contactId)
+
+  handleMarkAsFavorite(contactId)
 }
 
 // Renders

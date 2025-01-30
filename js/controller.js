@@ -13,11 +13,12 @@ function handleRemovelContact(contactId) {
   renderContacts(contactModel.contacts)
 }
 
-function handleFavorite(contactId) {
+function handleMarkAsFavorite(contactId) {
   contactModel.markFavoriteById(+contactId)
-  contactModel.getFavorites()
 
-  renderFavorites()
+  const favorites = contactModel.getFavorites()
+
+  renderFavorites(favorites)
 }
 
 renderContacts(contactModel.contacts)
