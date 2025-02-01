@@ -32,12 +32,9 @@ function onClickRemoveContact() {
   handleRemovelContact(contactId)
 }
 
-function onClickSpanAddToFavorite(e) {
+function onClickSpanAddToFavorite() {
   const elModal2 = document.querySelector('#modal2')
-  const elSpanFavorite = e.currentTarget.querySelector('span')
   const contactId = elModal2.getAttribute('contact-id')
-
-  console.log(contactId)
 
   handleMarkAsFavorite(contactId)
 }
