@@ -39,7 +39,7 @@ const contactModel = {
   },
 
   addToBlockedList(id) {
-    const contact = this.contacts.find(contact => contact.id === id)
+    const contact = this.getContactById(id)
     if (!contact) return
 
     const isBlocked = this.blockedPhones.some(blocked => blocked.id === id)
