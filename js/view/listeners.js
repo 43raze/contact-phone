@@ -1,5 +1,5 @@
-function onClickFab() {
-  renderModal1AddContact()
+function onClickFAB() {
+  renderModal1ContactAdding()
 }
 
 function onClickAddContact() {

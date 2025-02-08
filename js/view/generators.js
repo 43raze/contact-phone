@@ -1,4 +1,4 @@
-function generateContact({ id, firstName, secondName }) {
+function generateLiContact({ id, firstName, secondName }) {
   return `
   <li
     onclick="onClickLiContactDetail(event)"
@@ -25,7 +25,7 @@ function generateContact({ id, firstName, secondName }) {
 `
 }
 
-function generateFavorite({ firstName, secondName }) {
+function generateDivFavorite({ firstName, secondName }) {
   return `
   <div class="favorite col s6 m4 l3 xl2">
   <div class="card-panel teal lighten-2 waves-effect waves-light">

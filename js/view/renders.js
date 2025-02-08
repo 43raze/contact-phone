@@ -1,9 +1,9 @@
-function renderContacts(contacts) {
+function renderUlContacts(contacts) {
   const elContacts = document.querySelector('#app-contacts')
   elContacts.innerHTML = ''
 
   contacts.forEach(contact => {
-    const elContact = generateContact(contact)
+    const elContact = generateLiContact(contact)
     elContacts.innerHTML += elContact
   })
 }
@@ -26,21 +26,21 @@ function renderModal2DetailContact(contact) {
   }
 }
 
-function renderFavorites(contacts) {
+function renderDivFavorites(contacts) {
   const elFavorites = document.querySelector('#app-favorites')
   elFavorites.innerHTML = ''
 
   contacts.forEach(contact => {
-    const elFavorite = generateFavorite(contact)
+    const elFavorite = generateDivFavorite(contact)
     elFavorites.innerHTML += elFavorite
   })
 }
 
-function renderModal1AddContact() {
+function renderModal1ContactAdding() {
   const elModal1 = document.querySelector('#modal1')
   const elH5Title = elModal1.querySelector('h5')
   const elSpanButton = elModal1.querySelector('span')
-  const elAAddContact = document.querySelector('#appAddContact')
+  const elAAddContact = document.querySelector('#app-modal1-confirm')
 
   elH5Title.textContent = 'Добавить конткат'
   elSpanButton.textContent = 'Добавить'
@@ -48,14 +48,14 @@ function renderModal1AddContact() {
   elAAddContact.addEventListener('click', onClickAddContact)
 }
 
-function renderModal1UpdateContact(contact) {
+function renderModal1ContactUpdating(contact) {
   const elModal1 = document.querySelector('#modal1')
   const elH5Title = elModal1.querySelector('h5')
   const elInputFirstName = elModal1.querySelector('#firstName')
   const elInputSecondName = elModal1.querySelector('#secondName')
   const elInputPhone = elModal1.querySelector('#phone')
   const elSpanButton = elModal1.querySelector('span')
-  const elAAddContact = document.querySelector('#appAddContact')
+  const elAAddContact = document.querySelector('#app-modal1-confirm')
 
   elH5Title.textContent = 'Редактировать контакт'
   elSpanButton.textContent = 'Редактировать'
@@ -66,5 +66,5 @@ function renderModal1UpdateContact(contact) {
   elInputSecondName.value = `${contact.secondName}`
   elInputPhone.value = `${contact.phone}`
 
-  elAAddContact.addEventListener('click', onClickFab)
+  elAAddContact.addEventListener('click', onClickFAB)
 }
