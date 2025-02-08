@@ -88,9 +88,9 @@ contactModel.addContact({
   phone: '0442467216',
 })
 
-console.log('Контакты после добавления:', contactModel.contacts)
+// console.log('Контакты после добавления:', contactModel.contacts)
 
-contactModel.markFavoriteById(101)
-console.log('Избранные контакты:', contactModel.getFavorites())
+// contactModel.markFavoriteById(101)
+// console.log('Избранные контакты:', contactModel.getFavorites())
 
-console.log(contactModel.contacts)
+// console.log(contactModel.contacts)

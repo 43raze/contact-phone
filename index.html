@@ -142,6 +142,7 @@
 
           <div class="fixed-action-btn">
             <a
+              onclick="onClickFab()"
               id="elFab"
               href="#modal1"
               class="btn-floating btn-large pink accent-4 waves-effect waves-light modal-trigger pulse"
@@ -240,7 +241,13 @@
                 >
                   star
                 </span>
-                <span class="modal-close material-symbols-outlined">edit</span>
+
+                <span
+                  onclick="onClickSpanOpenModalUpdate(event)"
+                  href="#modal1"
+                  class="modal-close modal-trigger material-symbols-outlined"
+                  >edit</span
+                >
                 <span
                   onclick="onClickRemoveContact(event)"
                   class="modal-close material-symbols-outlined"

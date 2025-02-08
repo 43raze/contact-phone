@@ -8,9 +8,10 @@ function handleDetailContact(contactId) {
   renderModal2DetailContact(contact)
 }
 
-function handleRemovelContact(contactId) {
+function handleRemoveContact(contactId) {
   contactModel.removeContactById(+contactId)
   renderContacts(contactModel.contacts)
+  renderFavorites(contactModel.getFavorites())
 }
 
 function handleMarkAsFavorite(contactId) {
@@ -20,17 +21,19 @@ function handleMarkAsFavorite(contactId) {
   renderFavorites(favorites)
 }
 
-function handleMarkAsFavorite(contactId) {
-  const contact = contactModel.getContactById(+contactId)
-  if (!contact) return
+function handleUnMarkAsFavorite(contactId) {
+  contactModel.unmarkFavoriteById(+contactId)
+  const unmarkFavorites = contactModel.getFavorites()
 
-  if (contact.isFavorite) {
-    contactModel.unmarkFavoriteById(+contactId)
-  } else {
-    contactModel.markFavoriteById(+contactId)
-  }
+  renderFavorites(unmarkFavorites)
+}
 
-  renderFavorites(contactModel.getFavorites())
+function handleUpdateContact(contactId, contact) {
+  const updateContact = contactModel.getContactById(+contactId)
+  contactModel.updateContactById(updateContact, contact)
+  console.log(updateContact)
+
+  renderModal1UpdateContact(updateContact)
 }
 
 renderContacts(contactModel.contacts)
