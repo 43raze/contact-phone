@@ -3,6 +3,11 @@ function handleAddContact(contact) {
   renderUlContacts(contactModel.contacts)
 }
 
+function handleUpdateContactById(id, contact) {
+  contactModel.updateContactById(+id, contact)
+  renderUlContacts(contactModel.contacts)
+}
+
 function handleDetailContact(contactId) {
   const contact = contactModel.getContactById(+contactId)
   renderModal2DetailContact(contact)
@@ -17,23 +22,20 @@ function handleRemoveContact(contactId) {
 function handleMarkAsFavorite(contactId) {
   contactModel.markFavoriteById(+contactId)
   const favorites = contactModel.getFavorites()
-
   renderDivFavorites(favorites)
 }
 
 function handleUnMarkAsFavorite(contactId) {
   contactModel.unmarkFavoriteById(+contactId)
   const unmarkFavorites = contactModel.getFavorites()
-
   renderDivFavorites(unmarkFavorites)
 }
 
-function handleUpdateContact(contactId) {
-  const idContact = contactModel.getContactById(+contactId)
-  // contactModel.updateContactById(idContact, contact)
-  console.log(idContact)
-
-  renderModal1ContactUpdating(idContact)
+function handleOpenContactForUpdating(contactId) {
+  console.log(contactId)
+  const contact = contactModel.getContactById(+contactId)
+  console.log(contact)
+  renderModal1ContactUpdating(contact)
 }
 
 renderUlContacts(contactModel.contacts)

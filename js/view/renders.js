@@ -51,15 +51,22 @@ function renderModal1ContactUpdating(contact) {
   const elInputFirstName = elModal1.querySelector('#firstName')
   const elInputSecondName = elModal1.querySelector('#secondName')
   const elInputPhone = elModal1.querySelector('#phone')
-  const elSpanButton = elModal1.querySelector('span')
   const elButtonConfirm = document.querySelector('#app-modal1-confirm')
 
   elH5Title.textContent = 'Редактировать контакт'
   elButtonConfirm.textContent = 'Редактировать'
+
+  elButtonConfirm.onclick = onClickConfirmUpdateContact
 
   elModal1.setAttribute('contact-id', contact.id)
 
   elInputFirstName.value = `${contact.firstName}`
   elInputSecondName.value = `${contact.secondName}`
   elInputPhone.value = `${contact.phone}`
+
+  requestAnimationFrame(() => {
+    elInputFirstName.focus()
+    elInputSecondName.focus()
+    elInputPhone.focus()
+  })
 }

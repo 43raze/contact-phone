@@ -2,7 +2,7 @@ function onClickFAB() {
   renderModal1ContactAdding()
 }
 
-function onClickAddContact() {
+function onClickConfirmAddContact() {
   const firstName = document.querySelector('#firstName').value.trim()
   const secondName = document.querySelector('#secondName').value.trim()
   const phone = document.querySelector('#phone').value.trim()
@@ -14,6 +14,25 @@ function onClickAddContact() {
   }
 
   handleAddContact(contact)
+
+  document.querySelector('#firstName').value = ''
+  document.querySelector('#secondName').value = ''
+  document.querySelector('#phone').value = ''
+}
+
+function onClickConfirmUpdateContact() {
+  const firstName = document.querySelector('#firstName').value.trim()
+  const secondName = document.querySelector('#secondName').value.trim()
+  const phone = document.querySelector('#phone').value.trim()
+  const elModal1 = document.querySelector('#modal1')
+  const contactId = elModal1.getAttribute('contact-id')
+  const contact = {
+    firstName,
+    secondName,
+    phone,
+  }
+
+  handleUpdateContactById(contactId, contact)
 
   document.querySelector('#firstName').value = ''
   document.querySelector('#secondName').value = ''
@@ -43,21 +62,9 @@ function onClickSpanAddToFavorite(e) {
   }
 }
 
-function onClickSpanOpenModalUpdate(e) {
-  const elModal1 = document.querySelector('#modal1')
-  const contactId = e.currentTarget.getAttribute('contact-id')
-  elModal1.setAttribute('contact-id', contactId)
+function onClickSpanOpenModalUpdate() {
+  const elModal2 = document.querySelector('#modal2')
+  const contactId = elModal2.getAttribute('contact-id')
 
-  const firstName = document.querySelector('#firstName').value.trim()
-  const secondName = document.querySelector('#secondName').value.trim()
-  const phone = document.querySelector('#phone').value.trim()
-  console.log(contactId)
-
-  const updateContact = { firstName, secondName, phone }
-
-  handleUpdateContact(contactId, updateContact)
-
-  document.querySelector('#firstName').value = ''
-  document.querySelector('#secondName').value = ''
-  document.querySelector('#phone').value = ''
+  handleOpenContactForUpdating(contactId)
 }
