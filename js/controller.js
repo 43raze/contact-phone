@@ -28,12 +28,12 @@ function handleUnMarkAsFavorite(contactId) {
   renderDivFavorites(unmarkFavorites)
 }
 
-function handleUpdateContact(contactId, contact) {
-  const updateContact = contactModel.getContactById(+contactId)
-  contactModel.updateContactById(updateContact, contact)
-  console.log(updateContact)
+function handleUpdateContact(contactId) {
+  const idContact = contactModel.getContactById(+contactId)
+  // contactModel.updateContactById(idContact, contact)
+  console.log(idContact)
 
-  renderModal1ContactUpdating(updateContact)
+  renderModal1ContactUpdating(idContact)
 }
 
 renderUlContacts(contactModel.contacts)

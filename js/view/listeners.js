@@ -51,6 +51,7 @@ function onClickSpanOpenModalUpdate(e) {
   const firstName = document.querySelector('#firstName').value.trim()
   const secondName = document.querySelector('#secondName').value.trim()
   const phone = document.querySelector('#phone').value.trim()
+  console.log(contactId)
 
   const updateContact = { firstName, secondName, phone }
 

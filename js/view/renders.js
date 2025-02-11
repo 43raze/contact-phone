@@ -39,13 +39,10 @@ function renderDivFavorites(contacts) {
 function renderModal1ContactAdding() {
   const elModal1 = document.querySelector('#modal1')
   const elH5Title = elModal1.querySelector('h5')
-  const elSpanButton = elModal1.querySelector('span')
-  const elAAddContact = document.querySelector('#app-modal1-confirm')
+  const elButtonConfirm = document.querySelector('#app-modal1-confirm')
 
   elH5Title.textContent = 'Добавить конткат'
-  elSpanButton.textContent = 'Добавить'
-
-  elAAddContact.addEventListener('click', onClickAddContact)
+  elButtonConfirm.textContent = 'Добавить'
 }
 
 function renderModal1ContactUpdating(contact) {
@@ -55,16 +52,14 @@ function renderModal1ContactUpdating(contact) {
   const elInputSecondName = elModal1.querySelector('#secondName')
   const elInputPhone = elModal1.querySelector('#phone')
   const elSpanButton = elModal1.querySelector('span')
-  const elAAddContact = document.querySelector('#app-modal1-confirm')
+  const elButtonConfirm = document.querySelector('#app-modal1-confirm')
 
   elH5Title.textContent = 'Редактировать контакт'
-  elSpanButton.textContent = 'Редактировать'
+  elButtonConfirm.textContent = 'Редактировать'
 
   elModal1.setAttribute('contact-id', contact.id)
 
   elInputFirstName.value = `${contact.firstName}`
   elInputSecondName.value = `${contact.secondName}`
   elInputPhone.value = `${contact.phone}`
-
-  elAAddContact.addEventListener('click', onClickFAB)
 }
