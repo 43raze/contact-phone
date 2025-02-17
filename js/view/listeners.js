@@ -68,3 +68,9 @@ function onClickSpanOpenModalUpdate() {
 
   handleOpenContactForUpdating(contactId)
 }
+
+function onClickInputSearch(e) {
+  const inputSearchValue = e.target.value
+
+  handleFindContact(inputSearchValue)
+}

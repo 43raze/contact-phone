@@ -36,4 +36,9 @@ function handleOpenContactForUpdating(contactId) {
   renderModal1ContactUpdating(contact)
 }
 
+function handleFindContact(contact) {
+  const findContact = contactModel.findContacts(contact)
+  renderModal3SearchUl(findContact)
+}
+
 renderUlContacts(contactModel.contacts)

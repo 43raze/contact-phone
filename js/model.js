@@ -56,7 +56,7 @@ const contactModel = {
     this.recentCalls.unshift(recentCall)
   },
 
-  findContact(query) {
+  findContacts(query) {
     if (!query || typeof query !== 'string') return []
 
     const lowerCaseQuery = query.toLowerCase()

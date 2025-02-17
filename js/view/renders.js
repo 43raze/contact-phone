@@ -43,6 +43,7 @@ function renderModal1ContactAdding() {
 
   elH5Title.textContent = 'Добавить конткат'
   elButtonConfirm.textContent = 'Добавить'
+  elButtonConfirm.onclick = onClickConfirmAddContact
 }
 
 function renderModal1ContactUpdating(contact) {
@@ -56,8 +57,6 @@ function renderModal1ContactUpdating(contact) {
   elH5Title.textContent = 'Редактировать контакт'
   elButtonConfirm.textContent = 'Редактировать'
 
-  elButtonConfirm.onclick = onClickConfirmUpdateContact
-
   elModal1.setAttribute('contact-id', contact.id)
 
   elInputFirstName.value = `${contact.firstName}`
@@ -68,5 +67,17 @@ function renderModal1ContactUpdating(contact) {
     elInputFirstName.focus()
     elInputSecondName.focus()
     elInputPhone.focus()
+  })
+
+  elButtonConfirm.onclick = onClickConfirmUpdateContact
+}
+
+function renderModal3SearchUl(contacts) {
+  const elModal3Ul = document.querySelector('#modal3 ul')
+  elModal3Ul.innerHTML = ''
+
+  contacts.forEach(contact => {
+    const elContact = generateLiFind(contact)
+    elModal3Ul.innerHTML += elContact
   })
 }

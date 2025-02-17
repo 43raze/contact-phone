@@ -42,3 +42,16 @@ function generateDivFavorite({ firstName, secondName }) {
 </div>
 `
 }
+
+function generateLiFind({ firstName, secondName, phone }) {
+  return `
+    <li class="collection-item avatar">
+      <i class="material-icons circle green">assessment</i>
+      <span class="title">${firstName} ${secondName}</span>
+      <p>${phone}</p>
+      <a href="#!" class="secondary-content">
+        <i class="material-icons">phone</i>
+      </a>
+    </li>
+  `
+}
