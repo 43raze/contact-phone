@@ -32,9 +32,7 @@ function handleUnMarkAsFavorite(contactId) {
 }
 
 function handleOpenContactForUpdating(contactId) {
-  console.log(contactId)
   const contact = contactModel.getContactById(+contactId)
-  console.log(contact)
   renderModal1ContactUpdating(contact)
 }
 
