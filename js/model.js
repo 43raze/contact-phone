@@ -94,3 +94,9 @@ contactModel.addContact({
 // console.log('Избранные контакты:', contactModel.getFavorites())
 
 // console.log(contactModel.contacts)
+
+// contactModel.addRecentCall({
+//   phone: '0442467214',
+// })
+
+// console.log(contactModel.recentCalls)

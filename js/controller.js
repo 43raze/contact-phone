@@ -41,4 +41,9 @@ function handleFindContact(contact) {
   renderModal3SearchUl(findContact)
 }
 
+function handleAddRecentCall(phone) {
+  contactModel.addRecentCall({ phone })
+  renderRecentCalls(contactModel.recentCalls)
+}
+
 renderUlContacts(contactModel.contacts)

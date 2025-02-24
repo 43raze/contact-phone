@@ -55,3 +55,20 @@ function generateLiFind({ firstName, secondName, phone }) {
     </li>
   `
 }
+
+// todo вывести время  {phone, time} //
+function generateRecentCall({ phone, time }) {
+  const seconds = Math.floor((Date.now() - time) / 1000)
+  return `
+  <li class="recent-call waves-effect collection-item avatar transparent z-depth-1">
+    <i class="material-icons circle teal darken-3">person</i>
+    <span class="title"><b>${phone}</b></span>
+    <p>
+      <i>${seconds} секунд назад</i>
+    </p>
+    <a href="#!" class="secondary-content">
+      <i class="material-icons">phone</i>
+    </a>
+  </li>
+  `
+}

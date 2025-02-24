@@ -81,3 +81,13 @@ function renderModal3SearchUl(contacts) {
     elModal3Ul.innerHTML += elContact
   })
 }
+
+function renderRecentCalls(recentCalls) {
+  const elRecentCalls = document.querySelector('#app-recent-calls')
+  elRecentCalls.innerHTML = ''
+
+  recentCalls.forEach(recentCall => {
+    const elRecentCall = generateRecentCall(recentCall)
+    elRecentCalls.innerHTML += elRecentCall
+  })
+}
