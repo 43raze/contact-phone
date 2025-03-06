@@ -46,4 +46,8 @@ function handleAddRecentCall(phone) {
   renderRecentCalls(contactModel.recentCalls)
 }
 
+setInterval(() => {
+  renderRecentCalls(contactModel.recentCalls)
+}, 2000)
+
 renderUlContacts(contactModel.contacts)
