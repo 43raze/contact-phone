@@ -77,7 +77,7 @@ function onClickInputSearch(e) {
 
 function onClickRecentCall(e) {
   const elLi = e.currentTarget
-  const phone = elLi.querySelector('span')
+  const phone = elLi.querySelector('span > b')
 
   handleAddRecentCall(phone.textContent)
 }
