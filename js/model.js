@@ -53,8 +53,10 @@ const contactModel = {
       contact => contact.phone === recentCall.phone
     )
     recentCall.contact = findedContact ?? null
-
+    recentCall.timecall = Date.now()
     this.recentCalls.unshift(recentCall)
+
+    console.log(recentCall)
   },
 
   findContacts(query) {

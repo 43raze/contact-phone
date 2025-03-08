@@ -56,15 +56,15 @@ function generateLiFind({ firstName, secondName, phone }) {
   `
 }
 
-function generateRecentCall({ phone }) {
-  const seconds = new Date()
+function generateRecentCall({ phone, timecall }) {
+  const seconds = ((Date.now() - timecall) / 1000).toFixed(0)
 
   return `
   <li class="recent-call waves-effect collection-item avatar transparent z-depth-1">
     <i class="material-icons circle teal darken-3">person</i>
     <span class="title"><b>${phone}</b></span>
     <p>
-      <i>${seconds.getSeconds()} секунд назад</i>
+      <i>${seconds} секунд назад</i>
     </p>
     <a href="#!" class="secondary-content">
       <i class="material-icons">phone</i>
