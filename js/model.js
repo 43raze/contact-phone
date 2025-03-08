@@ -65,7 +65,8 @@ const contactModel = {
       contact =>
         contact.firstName.toLowerCase().includes(lowerCaseQuery) ||
         contact.secondName.toLowerCase().includes(lowerCaseQuery) ||
-        contact.phone.includes(lowerCaseQuery)
+        contact.phone.includes(lowerCaseQuery) ||
+        (contact.firstName + ' ' + contact.secondName).includes(query)
     )
   },
 }
