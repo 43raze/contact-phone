@@ -53,6 +53,7 @@ const contactModel = {
       contact => contact.phone === recentCall.phone
     )
     recentCall.contact = findedContact ?? null
+
     this.recentCalls.unshift(recentCall)
   },
 
@@ -66,7 +67,9 @@ const contactModel = {
         contact.firstName.toLowerCase().includes(lowerCaseQuery) ||
         contact.secondName.toLowerCase().includes(lowerCaseQuery) ||
         contact.phone.includes(lowerCaseQuery) ||
-        (contact.firstName + ' ' + contact.secondName).includes(query)
+        (contact.firstName + ' ' + contact.secondName)
+          .toLowerCase()
+          .includes(lowerCaseQuery)
     )
   },
 }
